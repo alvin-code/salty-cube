@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"i18n-ally.sourceLanguage": "ru",
+		"i18n-ally.displayLanguage": "ru",
+		"i18n-ally.localesPaths": [ "src/i18n/resources" ],
+		"i18n-ally.namespace": true,
+		"i18n-ally.defaultNamespace": "messages",
+		"i18n-ally.pathMatcher": "{locale}/{namespaces}.json",
+		"i18n-ally.keystyle": "nested",
+		"i18n-ally.enabledFrameworks": [
+			"next-translate",
+			"i18next",
+			"react",
+			"general"
+		],
+		"files.exclude": {
+			"node_modules": true
+		}
+	}
+}

@@ -1,0 +1,37 @@
+{
+  "exclude": [ "node_modules" ],
+  "compilerOptions": {
+    // Modules, Language and Environment
+    "jsx": "preserve",
+    "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+
+    // Emit
+    "noEmit": true,
+
+    // Type Checking
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    // Interop Constraints
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    
+    // JavaScript Support
+    "allowJs": false
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
