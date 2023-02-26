@@ -2,7 +2,7 @@ import { WebpackConfiguration } from 'webpack-dev-server'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import path from 'path'
 
-import { supportedLngs } from './src/i18n'
+import { supportedLanguages } from './src/i18n'
 
 export default (env: IEnvironment, args: IWebpackArgs): WebpackConfiguration => {
   const serve = env.WEBPACK_SERVE == true
@@ -48,7 +48,7 @@ export default (env: IEnvironment, args: IWebpackArgs): WebpackConfiguration => 
                   'i18next-extract',
                   {
                     outputPath: 'src/i18n/resources/{{locale}}/{{ns}}.json',
-                    locales: supportedLngs,
+                    locales: supportedLanguages,
                     useI18nextDefaultValue: true,
                     keyAsDefaultValue: true
                   }
