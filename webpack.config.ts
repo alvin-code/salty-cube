@@ -50,7 +50,8 @@ export default (env: IEnvironment, args: IWebpackArgs): WebpackConfiguration => 
                     outputPath: 'src/i18n/resources/{{locale}}/{{ns}}.json',
                     locales: supportedLanguages,
                     useI18nextDefaultValue: true,
-                    keyAsDefaultValue: true
+                    keyAsDefaultValue: true,
+                    defaultNS: 'messages'
                   }
                 ]
               ]
