@@ -1,3 +1,5 @@
 {
-  "i18next-initialized": "i18next uses {{language}} language"
+  "disabling-debug": "disabling debug",
+  "i18next-initialized": "i18next uses {{language}} language",
+  "log-message": "log-message"
 }

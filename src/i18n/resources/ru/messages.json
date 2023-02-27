@@ -1,3 +1,5 @@
 {
-  "i18next-initialized": "i18next использует язык {{language}}"
+  "disabling-debug": "отключаем отладку",
+  "i18next-initialized": "i18next использует язык {{language}}",
+  "log-message": "[salty-cube] {{message}}"
 }
