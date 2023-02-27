@@ -7,6 +7,5 @@ export interface ISaltyCubeProviderProps {
 }
 
 export interface ISaltyCubeContext {
-  debug: boolean
-  log: (message: string) => void
+  debug: (message: string) => void
 }
