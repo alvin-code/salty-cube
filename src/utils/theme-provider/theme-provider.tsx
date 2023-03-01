@@ -18,7 +18,8 @@ export const ThemeProvider = ({ children }: IThemeProviderProps) => {
     debug(t('changing-theme', { primaryColor }))
 
     return {
-      primaryColor
+      primaryColor,
+      containerColor: token.colorBgContainer
     }
   }, [ token ])
 
