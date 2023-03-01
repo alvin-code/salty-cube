@@ -20,7 +20,7 @@ if (document.currentScript != null) {
   const { lang, debug } = props
   init(lang, debug)
     .then(() => {
-      if (window.SugarCube == undefined) $(document).one(':storyready', render)
+      if (window.SugarCube?.Engine == undefined) $(document).one(':storyready', render)
       else render()
     })
 } else
