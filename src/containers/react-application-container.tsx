@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { SaltyCard, SaltyCardPosition } from '../components/salty-card'
+import { SaltyCubeMenuContainer } from './salty-cube-menu-container'
 import { SaltyCubeProvider } from '../utils/salty-cube-provider'
 import { ConfigurationProvider, AppTheme } from '../utils/configuration-provider'
 import { ThemeProvider } from '../utils/theme-provider'
@@ -13,7 +14,7 @@ export const ReactApplicationContainer = (props: IReactApplicationContainerProps
     <ConfigurationProvider lang={lang} theme={theme} color={color}>
       <ThemeProvider>
         <SaltyCard position={position}>
-          menu
+          <SaltyCubeMenuContainer />
         </SaltyCard>
       </ThemeProvider>
     </ConfigurationProvider>
