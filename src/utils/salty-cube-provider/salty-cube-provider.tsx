@@ -1,9 +1,11 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { SaltyCubeAction } from './actions'
 
 import { ISaltyCubeProviderProps, ISaltyCubeContext } from './types'
 
 const defaultSaltyCubeContext: ISaltyCubeContext = {
+  actions: [],
   debug: () => {}
 }
 
@@ -13,13 +15,14 @@ const { Provider } = saltyCubeContext
 export const useSaltyCube = () => useContext(saltyCubeContext)
 
 export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
-  const { debug = false, children } = props
+  const { debug = false, actions = defaultActions, children } = props
   const { t } = useTranslation()
 
   const debugRef = useRef(debug)
   const debugFunc = useCallback((message: string) => { if (debugRef.current) console.log(t('log-message', { message })) }, [])
 
   const [ value, setValue ] = useState<ISaltyCubeContext>({
+    actions: [],
     debug: debugFunc
   })
 
@@ -31,7 +34,20 @@ export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
     }
   }, [ debug ])
 
+  // handle actions change
+  useEffect(
+    () => setValue(s => ({ ...s, actions: [ ...actions ] })),
+    [ actions ])
+
   return <Provider value={value}>
     {children}
   </Provider>
 }
+
+const defaultActions: SaltyCubeAction[] = [
+  { type: 'go-back' },
+  { type: 'go-forward' },
+  { type: 'quick-save' },
+  { type: 'quick-load' },
+  { type: 'vars-editor' }
+]
