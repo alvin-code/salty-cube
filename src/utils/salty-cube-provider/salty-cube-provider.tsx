@@ -1,10 +1,12 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { SaltyCubeAction } from './actions'
+import { SugarCubeObject } from 'twine-sugarcube'
 
+import { SaltyCubeAction } from './actions'
 import { ISaltyCubeProviderProps, ISaltyCubeContext } from './types'
 
 const defaultSaltyCubeContext: ISaltyCubeContext = {
+  sugarCube: {} as SugarCubeObject,
   actions: [],
   debug: () => {}
 }
@@ -22,6 +24,7 @@ export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
   const debugFunc = useCallback((message: string) => { if (debugRef.current) console.log(t('log-message', { message })) }, [])
 
   const [ value, setValue ] = useState<ISaltyCubeContext>({
+    sugarCube: window.SugarCube!,
     actions: [],
     debug: debugFunc
   })

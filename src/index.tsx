@@ -14,10 +14,14 @@ if (document.currentScript != null) {
   const root = createRoot(container)
   
   const props = getReactApplicationContainerProps(document.currentScript)
-  const { lang, debug } = props
-  
+  const render = () => root.render(<ReactApplicationContainer {...props} />)
+
   // initialize i18next before mount
+  const { lang, debug } = props
   init(lang, debug)
-    .then(() => root.render(<ReactApplicationContainer {...props} />))
+    .then(() => {
+      if (window.SugarCube == undefined) $(document).one(':storyready', render)
+      else render()
+    })
 } else
   console.error('Can\'t locate salty-cube script tag! Please check the README for how to add salty-cube to your application')

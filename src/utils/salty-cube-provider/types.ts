@@ -1,4 +1,5 @@
 import React from 'react'
+import { SugarCubeObject } from 'twine-sugarcube'
 
 import { SaltyCubeAction } from './actions'
 
@@ -10,6 +11,7 @@ export interface ISaltyCubeProviderProps {
 }
 
 export interface ISaltyCubeContext {
+  sugarCube: SugarCubeObject
   actions: SaltyCubeAction[]
   debug: (message: string) => void
 }
