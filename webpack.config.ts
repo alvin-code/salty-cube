@@ -1,5 +1,4 @@
 import { WebpackConfiguration } from 'webpack-dev-server'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
 import path from 'path'
 
 import { supportedLanguages } from './src/i18n'
@@ -63,14 +62,7 @@ export default (env: IEnvironment, args: IWebpackArgs): WebpackConfiguration => 
           use: [ 'style-loader', 'css-loader' ]
         }
       ]
-    },
-
-    plugins: serve ? undefined : [
-      new HtmlWebpackPlugin({
-        template: 'public/index.html',
-        inject: false
-      })
-    ]
+    }
   }
 }
 
