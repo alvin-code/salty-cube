@@ -13,5 +13,13 @@ export interface ISaltyCubeProviderProps {
 export interface ISaltyCubeContext {
   sugarCube: SugarCubeObject
   actions: SaltyCubeAction[]
+
+  navigation: ISaltyCubeNavigation
+
   debug: (message: string) => void
+}
+
+export interface ISaltyCubeNavigation {
+  canGoBack: boolean
+  canGoForward: boolean
 }

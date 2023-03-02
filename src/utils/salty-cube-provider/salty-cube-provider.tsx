@@ -3,11 +3,15 @@ import { useTranslation } from 'react-i18next'
 import { SugarCubeObject } from 'twine-sugarcube'
 
 import { SaltyCubeAction } from './actions'
+import { getNavigation } from './private-utils'
 import { ISaltyCubeProviderProps, ISaltyCubeContext } from './types'
 
 const defaultSaltyCubeContext: ISaltyCubeContext = {
   sugarCube: {} as SugarCubeObject,
   actions: [],
+
+  navigation: { canGoBack: false, canGoForward: false },
+  
   debug: () => {}
 }
 
@@ -23,9 +27,13 @@ export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
   const debugRef = useRef(debug)
   const debugFunc = useCallback((message: string) => { if (debugRef.current) console.log(t('log-message', { message })) }, [])
 
+  const sugarCube = window.SugarCube!
   const [ value, setValue ] = useState<ISaltyCubeContext>({
-    sugarCube: window.SugarCube!,
+    sugarCube,
     actions: [],
+
+    navigation: getNavigation(sugarCube),
+
     debug: debugFunc
   })
 
@@ -37,6 +45,26 @@ export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
     }
   }, [ debug ])
 
+  // subscribe to sugar cube events
+  useEffect(
+    () => {
+      // navigation changed
+      $(document).on(':passageend', () => setValue(s => {
+        const { navigation: { canGoBack, canGoForward } } = s
+        const navigation = getNavigation(sugarCube)
+
+        const navigationChanged = navigation.canGoBack != canGoBack || navigation.canGoForward != canGoForward
+        if (navigationChanged) {
+          debugFunc(t('navigation-changed'))
+          return { ...s, navigation }
+        } else return s
+      }))
+
+      // save changed
+      
+    },
+    [])
+  
   // handle actions change
   useEffect(
     () => setValue(s => ({ ...s, actions: [ ...actions ] })),

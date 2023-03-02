@@ -3,5 +3,6 @@
   "changing-theme": "changing application theme (primary color: {{primaryColor}})",
   "disabling-debug": "disabling debug",
   "i18next-initialized": "i18next uses {{language}} language",
-  "log-message": "[salty-cube] {{message}}"
+  "log-message": "[salty-cube] {{message}}",
+  "navigation-changed": "navigation changed"
 }

@@ -3,5 +3,6 @@
   "changing-theme": "меняем тему приложения (основной цвет: {{primaryColor}})",
   "disabling-debug": "отключаем отладку",
   "i18next-initialized": "i18next использует язык {{language}}",
-  "log-message": "[salty-cube] {{message}}"
+  "log-message": "[salty-cube] {{message}}",
+  "navigation-changed": "смена навигации"
 }
