@@ -12,7 +12,9 @@ const defaultSaltyCubeContext: ISaltyCubeContext = {
 
   navigation: { canGoBack: false, canGoForward: false },
   quickSlot: { number: -1, filled: false },
+  varsEditorOpen: false,
   
+  setVarsEditorOpen: () => {},
   debug: () => {}
 }
 
@@ -35,7 +37,9 @@ export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
 
     navigation: getNavigation(sugarCube),
     quickSlot: getQuickSlot(sugarCube),
+    varsEditorOpen: false,
 
+    setVarsEditorOpen: (value) => setValue(s => s.varsEditorOpen != value ? { ...s, varsEditorOpen: value } : s),
     debug: debugFunc
   })
 

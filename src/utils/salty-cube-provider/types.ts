@@ -16,7 +16,9 @@ export interface ISaltyCubeContext {
 
   navigation: ISaltyCubeNavigation
   quickSlot: ISaltyCubeQuickSlot
+  varsEditorOpen: boolean
 
+  setVarsEditorOpen: (open: boolean) => void
   debug: (message: string) => void
 }
 

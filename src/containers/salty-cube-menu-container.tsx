@@ -6,7 +6,7 @@ import { ISaltyCubeMenuAction, SaltyCubeMenu } from '../components/salty-cube-me
 import { useSaltyCube } from '../utils/salty-cube-provider'
 
 export const SaltyCubeMenuContainer = () => {
-  const { sugarCube, navigation, quickSlot, actions } = useSaltyCube()
+  const { sugarCube, navigation, quickSlot, actions, setVarsEditorOpen } = useSaltyCube()
   const { t } = useTranslation()
 
   const menu = useMemo<ISaltyCubeMenuAction[]>(() =>
@@ -31,7 +31,7 @@ export const SaltyCubeMenuContainer = () => {
             onClick: () => { sugarCube.Save.slots.load(quickSlot.number) } }
         case 'vars-editor':
           return { key: '__variables-editor', icon: <FormOutlined />, title: t('menu:vars-editor'),
-            onClick: () => {} }
+            onClick: () => { setVarsEditorOpen(true) } }
         default:
           return { key, icon, title, onClick: () => { onClick(sugarCube) } }
       }

@@ -1,8 +1,8 @@
 {
+  "cancel": "Cancel",
+  "filter-placeholder": "vars name filter",
+  "no-matching-var": "No variables matching filter {{term}}",
   "reset": "Reset",
   "save": "Save",
-  "cancel": "Cancel",
-  "title": "Vars editor",
-  "filter-placeholder": "vars name filter",
-  "no-matching-var": "No variables matching filter {{term}}"
+  "title": "Vars editor"
 }
