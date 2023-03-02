@@ -9,5 +9,7 @@ export interface ISaltyCubeMenuAction {
   key: React.Key
   icon: React.ReactNode
   title: string
+  disabled?: boolean
+  
   onClick: () => void
 }

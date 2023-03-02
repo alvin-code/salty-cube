@@ -8,8 +8,8 @@ import { ISaltyCubeMenuProps } from './types'
 const SaltyCubeMenuComponent = (props: ISaltyCubeMenuProps) => {
   const { className, actions } = props
   const buttons = useMemo(() => actions
-    .map(({ key, icon, title, onClick }) => <Tooltip key={key} title={title}>
-      <Button className="salty-cube-menu-button" icon={icon} onClick={onClick} />
+    .map(({ key, icon, title, disabled, onClick }) => <Tooltip key={key} title={title}>
+      <Button className="salty-cube-menu-button" icon={icon} onClick={onClick} disabled={disabled} />
     </Tooltip>),
     [ actions ])
 
