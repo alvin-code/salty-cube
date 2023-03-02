@@ -69,16 +69,18 @@ export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
 
       // save changed
       if (sugarCube.Save.onSave != undefined) {
-        sugarCube.Save.onSave.add(() => setValue(s => {
-          const { quickSlot: { number, filled } } = s
-          const quickSlot = getQuickSlot(sugarCube)
-
-          const quickSlotChanged = quickSlot.number != number || quickSlot.filled != filled
-          if (quickSlotChanged) {
-            debugFunc(t('save-data-changed'))
-            return { ...s, quickSlot }
-          } else return s
-        }))
+        sugarCube.Save.onSave.add(() =>
+          // slots.has(number) is always false just after onSave, so wait a little
+          setTimeout(() => setValue(s => {
+            const { quickSlot: { number, filled } } = s
+            const quickSlot = getQuickSlot(sugarCube)
+  
+            const quickSlotChanged = quickSlot.number != number || quickSlot.filled != filled
+            if (quickSlotChanged) {
+              debugFunc(t('save-data-changed'))
+              return { ...s, quickSlot }
+            } else return s
+          }), 100))
       } else setValue(s => {
         const { quickSlot: { number, filled } } = s
         return !filled ? { ...s, quickSlot: { number, filled: true } } : s
