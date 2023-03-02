@@ -19,7 +19,8 @@ export const ThemeProvider = ({ children }: IThemeProviderProps) => {
 
     return {
       primaryColor,
-      containerColor: token.colorBgContainer
+      containerColor: token.colorBgContainer,
+      nestedFormItemMargin: token.marginLG
     }
   }, [ token ])
 
