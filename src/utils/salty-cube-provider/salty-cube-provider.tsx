@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { SugarCubeObject } from 'twine-sugarcube'
 
 import { SaltyCubeAction } from './actions'
-import { getNavigation } from './private-utils'
+import { getNavigation, getQuickSlot } from './private-utils'
 import { ISaltyCubeProviderProps, ISaltyCubeContext } from './types'
 
 const defaultSaltyCubeContext: ISaltyCubeContext = {
@@ -11,6 +11,7 @@ const defaultSaltyCubeContext: ISaltyCubeContext = {
   actions: [],
 
   navigation: { canGoBack: false, canGoForward: false },
+  quickSlot: { number: -1, filled: false },
   
   debug: () => {}
 }
@@ -33,6 +34,7 @@ export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
     actions: [],
 
     navigation: getNavigation(sugarCube),
+    quickSlot: getQuickSlot(sugarCube),
 
     debug: debugFunc
   })
@@ -61,7 +63,21 @@ export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
       }))
 
       // save changed
-      
+      if (sugarCube.Save.onSave != undefined) {
+        sugarCube.Save.onSave.add(() => setValue(s => {
+          const { quickSlot: { number, filled } } = s
+          const quickSlot = getQuickSlot(sugarCube)
+
+          const quickSlotChanged = quickSlot.number != number || quickSlot.filled != filled
+          if (quickSlotChanged) {
+            debugFunc(t('save-data-changed'))
+            return { ...s, quickSlot }
+          } else return s
+        }))
+      } else setValue(s => {
+        const { quickSlot: { number, filled } } = s
+        return !filled ? { ...s, quickSlot: { number, filled: true } } : s
+      })
     },
     [])
   

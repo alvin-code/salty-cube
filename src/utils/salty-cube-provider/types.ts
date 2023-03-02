@@ -15,6 +15,7 @@ export interface ISaltyCubeContext {
   actions: SaltyCubeAction[]
 
   navigation: ISaltyCubeNavigation
+  quickSlot: ISaltyCubeQuickSlot
 
   debug: (message: string) => void
 }
@@ -22,4 +23,9 @@ export interface ISaltyCubeContext {
 export interface ISaltyCubeNavigation {
   canGoBack: boolean
   canGoForward: boolean
+}
+
+export interface ISaltyCubeQuickSlot {
+  number: number
+  filled: boolean
 }
