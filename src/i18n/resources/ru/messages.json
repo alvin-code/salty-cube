@@ -4,7 +4,7 @@
   "disabling-debug": "отключаем отладку",
   "i18next-initialized": "i18next использует язык {{language}}",
   "log-message": "[salty-cube] {{message}}",
-  "navigation-changed": "смена навигации",
+  "navigation-changed": "смена навигации: {{title}}",
   "quick-save": "Быстрое сохранение",
   "save-data-changed": "данные сохранения изменены"
 }

@@ -51,13 +51,14 @@ export const SaltyCubeProvider = (props: ISaltyCubeProviderProps) => {
   useEffect(
     () => {
       // navigation changed
-      $(document).on(':passageend', () => setValue(s => {
+      $(document).on(':passageend', (e) => setValue(s => {
         const { navigation: { canGoBack, canGoForward } } = s
         const navigation = getNavigation(sugarCube)
 
         const navigationChanged = navigation.canGoBack != canGoBack || navigation.canGoForward != canGoForward
         if (navigationChanged) {
-          debugFunc(t('navigation-changed'))
+          const { title } = e.passage
+          debugFunc(t('navigation-changed', { title }))
           return { ...s, navigation }
         } else return s
       }))

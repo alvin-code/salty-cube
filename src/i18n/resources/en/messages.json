@@ -4,7 +4,7 @@
   "disabling-debug": "disabling debug",
   "i18next-initialized": "i18next uses {{language}} language",
   "log-message": "[salty-cube] {{message}}",
-  "navigation-changed": "navigation changed",
+  "navigation-changed": "navigation changed: {{title}}",
   "quick-save": "quick-save",
   "save-data-changed": "save data changed"
 }
