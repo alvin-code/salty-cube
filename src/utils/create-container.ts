@@ -1,4 +1,4 @@
-const CONTAINER_ID = 'salty-cube-container'
+export const CONTAINER_ID = 'salty-cube-container'
 
 export const createContainer = () => {
   let container = document.getElementById(CONTAINER_ID)
