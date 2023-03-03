@@ -80,7 +80,13 @@ export const SaltyCubeVarsEditor = styled(SaltyCubeVarsEditorComponent)`
   }
 
   .ant-modal-footer > .editor-button {
-    width: 90px;
+    width: 100px;
+
+    &:hover {
+      color: ${props => props.theme.primaryColor};
+      border-color: ${props => props.theme.primaryColor};
+      background-color: ${props => props.theme.containerColor};
+    }
 
     &.editor-button-reset {
       float: left;
