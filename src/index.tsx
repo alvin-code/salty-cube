@@ -20,7 +20,13 @@ if (document.currentScript != null) {
   const { lang, debug } = props
   init(lang, debug)
     .then(() => {
-      if (window.SugarCube?.Engine == undefined) $(document).one(':storyready', render)
+      if (window.SugarCube?.Engine == undefined) {
+        const version = window.SugarCube?.version
+        if (version != undefined && version.major >= 2 && version.minor >= 31)
+          $(document).one(':storyready', render)
+        else
+          $(document).one(':passageinit', render)
+      }
       else render()
     })
 } else
