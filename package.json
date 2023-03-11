@@ -26,7 +26,7 @@
     "regenerator-runtime": "^0.13.11",
     "simplebar-react": "^3.2.1",
     "styled-components": "^5.3.6",
-    "use-resize-observer": "^9.1.0"
+    "use-debounce": "^9.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
