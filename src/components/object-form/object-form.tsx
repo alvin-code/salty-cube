@@ -48,7 +48,7 @@ const ObjectFormComponent = (props: IObjectFormProps) => {
     [ listWidth, listHeight, items, sizes ])
 
   return <Space className={classNames('object-form', className)} direction="vertical">
-    <Input placeholder={t('editor:filter-placeholder')!} allowClear value={term} onChange={onTermChange} />
+    <Input className="object-form-filter" placeholder={t('editor:filter-placeholder')!} allowClear value={term} onChange={onTermChange} />
     <Form className="object-form-container" form={form} initialValues={object}
       labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}
       onFinish={onFinish}>
@@ -63,6 +63,14 @@ const ObjectFormComponent = (props: IObjectFormProps) => {
 export const ObjectForm = styled(ObjectFormComponent)`
   width: 100%;
 
+  .object-form-filter, .ant-form-item-control-input {
+    input {
+      &:hover, &:focus {
+        background-color: ${props => props.theme.containerColor};
+      }
+    } 
+  }
+  
   .object-form-container {
     .object-form-items-list {
       .object-form-item {
