@@ -1304,6 +1304,12 @@ var settingDialogTags = function () {
     State.variables.test_var_number = 42;
     State.variables.test_var_object = { test_boolean: true, test_string: 'test_string' };
     State.variables.test_var_object.test_nested_object = { test_number: 1 };
+
+    for (var i = 0; i < 300; i++) {
+      console.log(1);
+      State.variables[`test_list_${i}`] = i;
+    }
+    
 		$(document).trigger(":liveupdate");
 	}
 	else {

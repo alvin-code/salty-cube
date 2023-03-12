@@ -22,9 +22,11 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^12.2.0",
     "react-is": "^18.2.0",
+    "react-window": "^1.8.8",
     "regenerator-runtime": "^0.13.11",
     "simplebar-react": "^3.2.1",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "use-debounce": "^9.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
@@ -36,6 +38,7 @@
     "@types/node": "^18.14.1",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/react-window": "^1.8.5",
     "@types/regenerator-runtime": "^0.13.1",
     "@types/styled-components": "^5.1.26",
     "@types/twine-sugarcube": "^2.36.4",
