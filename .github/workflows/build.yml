@@ -1,6 +1,7 @@
 name: Build SaltyCube with Webpack
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [ "master" ]
 
